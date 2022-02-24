@@ -8,10 +8,16 @@ export const userSlice = createSlice({
     },
     reducers: {
         update: (state,action) => {
-            state = action.payload;
-        }
+            return {
+                ...state,
+                name: action.payload.name,
+                email: action.payload.email
+            }
+        },
+        remove: (state) => (state = {}),
+        add: 
     }
 })
 
-export const {update} = userSlice.actions;
+export const {update, remove} = userSlice.actions;  
 export default userSlice.reducer;

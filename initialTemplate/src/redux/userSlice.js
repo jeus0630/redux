@@ -7,8 +7,11 @@ export const userSlice = createSlice({
         email: "john@gmail.com"
     },
     reducers: {
-        update: (sate,action) => {
-            
+        update: (state,action) => {
+            state = action.payload;
         }
     }
 })
+
+export const {update} = userSlice.actions;
+export default userSlice.reducer;

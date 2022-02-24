@@ -3,6 +3,7 @@ import Warning from "../warning/Warning";
 import "./update.css";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import {update} from '../../redux/userSlice';
 
 export default function Update() {
   const [name, setName] = useState("");
@@ -10,6 +11,11 @@ export default function Update() {
   
   const user = useSelector(state => state.user);
   const dispatch = useDispatch();
+
+  const handleUpdate = (e) => {
+      e.preventDefault();
+      dispatch(update({name,email}))
+  }
 
   return (
     <div className="update">
@@ -54,7 +60,7 @@ export default function Update() {
             </div>
             <button
               className="updateButton"
-              
+              onClick={handleUpdate}
             >
               Update
             </button>
